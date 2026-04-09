@@ -1,6 +1,26 @@
-# LazyAttentionSSMTestBed
-Repository to centralize development thrusts on the LazyAttentionSSM (LASSM), which I have designed as a competitor to the Transformer architecture. Right now, it is vastly superior to transformers in windowed and multi-timestep future prediction, seen in the crypto model. It is currently being tested in an LLM and a UNet Image Gen Architecture, and will soon be adapted into a ViLASSM architecture for comparitive testing under the next development thrust.
+# LazyAttentionSSM Test Bed
 
-Still needs to undergo perplexity benchmarking.
+Research sandbox for the LazyAttentionSSM architecture across three prototype tracks: time-series forecasting, language modeling, and text-conditioned image generation. The repository is intentionally lightweight and notebook-driven while benchmarking is still in progress.
 
-License is not included in this GitHub repository. This repository is VIEW/VALIDATION ONLY. Modification, use, or development of this architecture without express permission and under the direction of Seth Stock is expressly prohibited while the initial research thrusts, validation, and benchmarking are being performed. You may run the existing notebooks without structural modification to see results for yourself (parameter changing allowed). Only once a paper has been published may this work be used or distributed under a public license. The repository license will be updated when this happens. Failure to comply with the ad-hoc licensure agreement will result in reports to research integrity bodies in the United States, European Union, African Union, and East Asia/the Pacific.
+## Repository Contents
+
+- `cryptopred-ipynb (6).ipynb`: windowed crypto-market prediction experiment and transformer comparison
+- `ssmllm.py`: standalone TinyStories language-model prototype using the LazyAttentionSSM blocks
+- `ssmimggen (5).ipynb`: text-conditioned image-generation experiment built around an SSM-style UNet path
+- `requirements.txt`: base Python dependencies for the local Anaconda data-science workflow
+
+## Environment
+
+This refresh is based on the local Anaconda `datascience312` workflow (Python 3.12):
+
+```bash
+conda activate datascience312
+pip install -r requirements.txt
+```
+
+## Notes
+
+- `ssmllm.py` is the most portable entrypoint in the repository.
+- `cryptopred-ipynb (6).ipynb` is designed around Kaggle parquet inputs.
+- `ssmimggen (5).ipynb` was built for Kaggle or TPU-backed environments and will need extra runtime setup such as `torch-xla`.
+- No formal license file is included yet, so treat the repository as all rights reserved until one is added.
